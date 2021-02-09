@@ -1,0 +1,132 @@
+﻿@model AppLogin.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="~/Assets/images/favicon.ico">
+
+    <title>Portal Educativo - Registro </title>
+
+    <!-- Bootstrap 4.0-->
+    <link rel="stylesheet" href="~/Assets/vendor_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap extend-->
+    <link rel="stylesheet" href="~/Assets/css/bootstrap-extend.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Assets/css/master_style.css">
+
+    <!-- Fab Admin skins -->
+    <link rel="stylesheet" href="~/Assets/css/skins/_all-skins.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition register-page">
+
+    <div class="container h-p100">
+        <div class="row align-items-center justify-content-md-center h-p100">
+            <div class="col-lg-4 col-md-8 col-12">
+                <div class="register-box">
+                    <div class="register-box-body">
+                        <h4 class="text-center">Bienvenidos al Portal Educativo</h4>
+                        <p class="login-box-msg">Registre nuevo usuario</p>
+
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group has-feedback">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-0 control-label" })
+                                <span class="input-group-text">
+                                    <a class="fa fa-envelope"></a>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </span>
+
+
+                            </div>
+                            <div class="form-group has-feedback">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                <span class="input-group-text">
+                                    <i class="fa fa-user-secret"></i>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </span>
+
+
+                            </div>
+                            <div class="form-group has-feedback">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                <span class="input-group-text">
+                                    <i class="fa fa-user-secret active"></i>
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                </span>
+                                
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="basic_checkbox_1">
+                                        <label for="basic_checkbox_1">Acepto los <a href="#" class="text-warning"><b>Terminos</b></a></label>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-info btn-block margin-top-10">Registrar</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            @Html.ValidationSummary("", new { @class = "text-warning" })
+                        }
+
+                        @*<div class="social-auth-links text-center">
+                            <p>- OR -</p>
+                            <a href="#" class="btn btn-outline btn-social-icon btn-light"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="btn btn-outline btn-social-icon btn-light"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="btn btn-outline btn-social-icon btn-light"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline btn-social-icon btn-light"><i class="fa fa-instagram"></i></a>
+                        </div>*@
+                        <!-- /.social-auth-links -->
+
+                        <div class="margin-top-20 text-center">
+                            <p>¿Ya tienes cuenta?<a href="/Account/Login" class="text-warning"> Iniciar Sesion</a></p>
+                        </div>
+
+                    </div>
+                    <!-- /.form-box -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery 3 -->
+    <script src="~/Assets/vendor_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- popper -->
+    <script src="~/Assets/assets/vendor_components/popper/dist/popper.min.js"></script>
+
+    <!-- Bootstrap 4.0-->
+    <script src="~/Assets/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+
